@@ -1,0 +1,261 @@
+<resources>
+    <string name="app_name">Linkai</string>
+    <string name="title_activity_login">Sign in</string>
+    <string name="title_activity_signup">Sign up</string>
+    <string name="title_activity_app_agreement">AppAgreement</string>
+    <string name="title_activity_app_varification">Varification</string>
+    <string name="title_activity_user_profile">Profile</string>
+    <string name="title_activity_new_group">New Group</string>
+    <string name="title_activity_generate_linkod">Generate Linkod</string>
+    <string name="title_activity_my_linkods">My Linkods</string>
+    <string name="title_activity_redeem_linkod">Redeem Linkod</string>
+    <string name="title_activity_create_event">Create Linkai Event</string>
+
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="search_title">Search</string>
+
+    <!--strings related to navigation drawer-->
+    <string name="navigation_drawer_open">Open menu</string>
+    <string name="navigation_drawer_close">Close menu</string>
+
+    <!-- menu action strings-->
+    <string name="action_settings">Settings</string>
+    <string name="action_refersh">Refresh</string>
+    <string name="action_add_group">Add group</string>
+    <string name="action_linkai">Linkai service</string>
+    <string name="action_add_member">Add Member</string>
+    <string name="action_exit_group">Exit Group</string>
+    <!--new-->
+    <string name="action_clear_chat">Clear chat</string>
+
+
+    <!--strings for different event types-->
+    <string name="event_birthday">Birthday</string>
+    <string name="event_wedding">Wedding</string>
+    <string name="event_selfa">Selfa</string>
+    <string name="event_others">Others</string>
+
+    <!--Directory names-->
+    <string name="dir_home">Linkai</string>
+    <string name="dir_sent">Linkai/sent</string>
+    <string name="dir_images">Linkai/images</string>
+    <string name="dir_audio">Linkai/audio</string>
+    <string name="dir_video">Linkai/video</string>
+    <string name="dir_others">Linkai/others</string>
+    <string name="dir_temp">Linkai/temp</string>
+
+
+    <!--arrays-->
+    <!--currency array-->
+    <string-array name="currency">
+        <item>IQD</item>
+        <item>USD</item>
+    </string-array>
+    <!--/arrays-->
+
+    <!--layout strings-->
+    <!--layout: activity app agreement-->
+    <string name="title_welcome">Welcome to Linkai</string>
+    <string name="content_service_message">Exchange beyond messages with Linkai users.\r\nFree services for special customers.</string>
+    <string name="content_TnC_message">By selecting continue you agree to our </string>
+    <string name="content_TnC_link">Terms&amp;Policies</string>
+
+    <!--layout: activity group profile-->
+    <string name="group_profile_title_members">Members</string>
+
+    <!--layout: activity group profile-->
+    <string name="amount_entry_title_amount">Amount</string>
+
+    <!--layout: activity linkai contacts-->
+    <string name="linkai_contacts_title_linkaito">Linkai To</string>
+
+    <!--layout: activity linkai create event step 1-->
+    <string name="create_event_1_hint_event_name">Event name</string>
+    <string name="create_event_1_title_event_icen">Select event icon or take a photo</string>
+    <string name="create_event_1_title_targetAmount">Target Amount</string>
+    <string name="create_event_1_text_beneficiary_name">Beneficiary name</string>
+    <string name="create_event_1_text_beneficiary_phone">Beneficiary phone number</string>
+
+    <!--layout: activity linkai create event step 2-->
+    <string name="create_event_2_title_the_event" >The event</string>
+    <string name="create_event_2_add_participants" >Add Participants(Up to 20 contacts)</string>
+
+    <!--layout: activity linkai create event step 3-->
+    <string name="create_event_3_text_success_message" >Your event has been successfully created</string>
+    <string name="create_event_3_title_event_balance" >Event balance</string>
+    <string name="create_event_3_title_event_participants" >Event participants</string>
+
+    <!--layout: activity linkai fees paid by-->
+    <string name="fees_paidby_title_fees_paid_by">Fees Paid By</string>
+    <string name="fees_paidby_text_rd_me">Me</string>
+    <string name="fees_paidby_text_rd_receiver">Receiver</string>
+    <string name="fees_paidby_text_rd_5050">50/50</string>
+
+    <!--layout: activity linkai generate linkod-->
+    <string name="generate_linkod_text_share">Share</string>
+    <string name="generate_linkod_title_amount">AMOUNT</string>
+    <string name="generate_linkod_btn_get_linkod">GET LINKOD</string>
+    <string name="generate_linkod_title_find_linkai_agent">Find Linkai agent</string>
+    <string name="generate_linkod_text_search">Search</string>
+    <string name="generate_linkod_text_near_to_me">Near to me</string>
+    <string name="generate_linkod_btn_help">HELP</string>
+    <string name="generate_linkod_my_linkods">MY LINKODS</string>
+
+    <!--layout: activity linkai pin entry-->
+    <string name="pin_entry_title_security_pin">Security Pin</string>
+    <string name="pin_entry_title_pin">PIN</string>
+
+    <!--layout: activity linkai redeem-->
+    <string name="linkai_redeem_title_amount">Amount</string>
+    <string name="linkai_redeem_title_linkod">Linkod</string>
+    <string name="linkai_redeem_btn_redeem_linkod">REDEEM LINKOD</string>
+    <string name="linkai_redeem_title_history">History</string>
+
+    <!--layout: activity linkai set pin-->
+    <string name="set_pin_title_security_pin">Security Pin</string>
+    <string name="set_pin_title_pin">PIN</string>
+    <string name="set_pin_title_confirmation">Confirmation</string>
+
+    <!--layout: activity linkai transfer confirmation-->
+    <string name="transfer_confirmation_title_your_confirmation">Your confirmation</string>
+    <string name="transfer_confirmation_title_pin">PIN</string>
+    <string name="transfer_confirmation_rd_TnC">I accept terms and conditions</string>
+
+    <!--layout: activity linkai transfer time-->
+    <string name="transfer_time_title_transfer_time">TRANSFER TIME</string>
+    <string name="transfer_time_rd_now">NOW</string>
+    <string name="transfer_time_rd_later">LATER</string>
+    <string name="transfer_time_rd_scheduled">SCHEDULED</string>
+
+    <!--layout: activity login-->
+    <string name="login_login_title_select_country">Select your country</string>
+    <string name="login_login_hint_country">Country</string>
+    <string name="login_login_title_choose_currency">Choose currency</string>
+    <string name="login_login_title_enter_phone">Enter your phone number</string>
+    <string name="login_login_hint_phone">Phone</string>
+
+    <!--layout: activity mobile varification-->
+    <string name="mobile_varification_text_message">You will receive a code by SMS.\nIt can take upto 2 minutes, thank you for your patience</string>
+    <string name="mobile_varification_title_enter_your_code">Enter your code</string>
+    <string name="mobile_varification_hint_enter_access_code">Enter access code</string>
+    <string name="mobile_varification_btn_validate">VALIDATE</string>
+    <string name="mobile_varification_text_message_resend">You didn\'t receive your code. Click here</string>
+    <string name="mobile_varification_btn_resend">RESEND CODE</string>
+
+    <!--layout: activity user profile-->
+    <string name="user_profile_header_title">Your Linkai Profile</string>
+    <string name="user_profile_hint_name">Your Name</string>
+    <string name="user_profile_hint_phone">Phone</string>
+    <string name="user_profile_hint_email">Email</string>
+    <string name="user_profile_hint_address">Address</string>
+
+    <!--layout: fragment attachment view-->
+    <string name="attachment_gallary">Gallery</string>
+    <string name="attachment_video">Video</string>
+    <string name="attachment_audio">Audio</string>
+
+    <!--layout : fragment my linkai-->
+    <string name="mylinkai_title_linkai_balance">My Linkai balance is</string>
+    <string name="mylinkai_title_mylinkod">My Linkod</string>
+    <string name="mylinkai_text_generate">Generate</string>
+    <string name="mylinkai_text_redeem">Redeem</string>
+    <string name="mylinkai_title_mylinkai_history">My Linkai history</string>
+    <string name="mylinkai_title_period">Period</string>
+    <string name="mylinkai_title_date_from">From</string>
+    <string name="mylinkai_title_date_to">To</string>
+
+    <!--layout : listitem chat transfer-->
+    <string name="listitem_transfer_text_no">No </string>
+    <string name="listitem_transfer_text_yes">Yes </string>
+
+    <!--layout : listitem friendslist-->
+    <string name="listitem_friends_btn_invite">Invite</string>
+
+    <!--layout : listitem mylinkods list-->
+    <string name="listitem_linkods_title_expiry">Expiry in</string>
+
+    <!--activity java strings-->
+    <!--activity : AppAgreement.java-->
+    <string name="app_agreement_alert_title_grant_permission">Please grant permissions</string>
+    <string name="app_agreement_alert_content_grant_permission">App cannot work if deny any permission. Do you want to grant permissions?</string>
+
+    <!--activity : group chatbox activity-->
+    <string name="group_chatbox_alert_title_message_sending_denied">Can\'t send message</string>
+    <string name="group_chatbox_alert_content_message_sending_denied">Currently you are not a member of this group</string>
+
+    <!--activity : group profile activity-->
+    <string name="group_profile_alert_title_exit_confirmation">Exit Group</string>
+    <string name="group_profile_alert_content_exit_confirmation">Do you really want to exit?</string>
+
+    <!--activity : home activity-->
+    <string name="home_nav_text_edit_name">Edit Your Name</string>
+    <string name="home_nav_text_new_picture">Take new picture</string>
+    <string name="home_nav_text_choose_from_gallery">Choose photo from gallery</string>
+    <string name="home_nav_text_add_contact">Add contact</string>
+    <string name="home_nav_text_share_linkai">Share Linkai</string>
+    <string name="home_nav_text_settings">Settings</string>
+    <!--home activity > home pager adapter-->
+    <string name="home_pager_tab_chats">CHATS</string>
+    <string name="home_pager_tab_contacts">CONTACTS</string>
+    <string name="home_pager_tab_mylinkai">My Linkai</string>
+
+    <!--activity : linkai create event step 2-->
+    <string name="create_event_alert_title_empty_participants">Empty participant list</string>
+    <string name="create_event_alert_content_empty_participants">Add at least one participant.</string>
+
+    <!--activity : linkai fees paid by activity-->
+    <string name="fees_paidby_alert_title_choose_payment_option">Choose payment option</string>
+    <string name="fees_paidby_alert_content_choose_payment_option">"Please choose fees payment option."</string>
+
+    <!--activity : linkai set pin-->
+    <string name="set_pin_alert_title_failed_to_set_pin">Failed to set PIN</string>
+    <string name="set_pin_alert_content_failed_to_set_pin">Could not complete the process. Try again.</string>
+
+    <!--activity : linkai transfer confirmation activity-->
+    <string name="transfer_confirm_alert_title_trans_exec_failed">Transfer execution failed</string>
+    <string name="transfer_confirm_alert_content_trans_exec_failed">Could not complete the process. Try again.</string>
+
+    <!--activity : transfer time activity-->
+    <string name="transfer_time_alert_title_choose_time">Alert!!</string>
+    <string name="transfer_time_alert_content_choose_time">Please choose transfer time.</string>
+
+    <!--activity : login activity-->
+    <string name="login_alert_title_internet_notification">Couldn\'t connect</string>
+    <string name="login_alert_content_internet_notification">An internet connection is required to set up Linkai. Check your connection and try again.</string>
+    <string name="login_alert_title_confirmation">Confirmation</string>
+    <string name="login_alert_content1_confirmation">Click OK if your number is correct.</string>
+    <string name="login_alert_content2_confirmation">An SMS containing your access code will be sent to this number</string>
+    <string name="login_alert_btn_confirm">CONFIRM</string>
+    <string name="login_alert_btn_edit">EDIT</string>
+    <string name="login_alert_alert_title_signup_failed">Sign up failed!!</string>
+    <string name="login_alert_alert_content_signup_failed">An error occurred during sign up. Try again.</string>
+
+    <!--activity : mobile verification activity-->
+    <string name="mobile_verification_alert_title_code_validation_failed">Code validation failed</string>
+    <string name="mobile_verification_alert_content_code_validation_failed">Could not complete the process. Try again.</string>
+    <string name="mobile_verification_alert_title_signup_failed">Signup failed</string>
+    <string name="mobile_verification_alert_content_signup_failed">Could not complete the process. Try again.</string>
+    <string name="mobile_verification_alert_title_resending_failed">Resending failed</string>
+    <string name="mobile_verification_alert_content_resending_failed">Could not complete the process. Try again.</string>
+
+
+
+    <!--common strings-->
+    <string name="btn_continue">CONTINUE</string>
+    <string name="hint_enter_message"> Enter Message</string>
+    <string name="hint_search">search</string>
+    <string name="text_empty">Empty</string>
+    <string name="alert_btn_ok">Ok</string>
+    <string name="alert_btn_Yes">Yes</string>
+    <string name="alert_btn_No">No</string>
+    <string name="alert_btn_cancel">CANCEL</string>
+    <string name="alert_title_error">Error!!</string>
+    <string name="alert_content_error_try">An error occurred. Try again..</string>
+    <string name="alert_title_signin">Your session has expired</string>
+    <string name="alert_content_signin">You need to Sign in and try again</string>
+    <string name="alert_btn_signin">SIGN IN</string>
+    <string name="alert_title_signin_failed">Signing in failed</string>
+    <string name="alert_content_signin_failed">Could not sign in. Try after some time.</string>
+
+
+</resources>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="1dip"
+    style="?android:attr/listSelector"
+    >
+    <LinearLayout
+        android:id="@+id/llMain"
+        android:orientation="horizontal" android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        >
+        <com.linkai.app.design.RoundedImageView
+            android:id="@+id/imgProfileThumb"
+            android:layout_width="60dip"
+            android:layout_height="60dip"
+            android:padding="5dip"
+            android:src="@drawable/ic_user"/>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+
+            android:id="@+id/llFriendDetailContainer"
+            android:orientation="vertical"
+
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Large Text"
+                android:id="@+id/lblFriendName"
+                android:padding="3dip"
+                android:textSize="16dip"
+                android:textColor="@android:color/black"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New Text"
+                android:id="@+id/lblFriendPhone"
+                android:padding="2dip"
+                android:textSize="12dip"
+                android:textColor="@android:color/darker_gray"
+                android:visibility="gone"/>
+
+        </LinearLayout>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="2dp"
+        android:background="@color/gray1"
+        android:layout_below="@+id/llMain"
+        />
+</RelativeLayout>

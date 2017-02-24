@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FA5C4D</color>
+    <color name="colorPrimaryDark">#E15345</color>
+    <color name="colorPrimaryLight">#EB7D78</color>
+    <color name="colorBlackTransparent">#85000000</color>
+    <color name="textColorPrimary">#FFFFFF</color>
+    <color name="colorSecondary">#a5ef08</color>
+    <color name="colorSecondaryDark">#75A807</color>
+    <color name="windowBackground">#FFFFFF</color>
+    <color name="navigationBarColor">#ac5353</color>
+    <!--<color name="colorAccent">#b94646</color>-->
+    <color name="colorAccent">#dadada</color>
+    <color name="colorLinakaiStepsToDo">#dadada</color>
+    <color name="colorSideMenu">#919191</color>
+    <color name="colorUserIcon">#D7D7D7</color>
+    <color name="colorUserIconBg">#E9E9E9</color>
+    <!--for chat-->
+    <color name="colorBubbleIncoming">#fff</color>
+    <color name="colorBubbleOutgoing">#A2E217</color>
+    <color name="colorEditTextOutgoing">#E6E6E6</color>
+    <!--for special textview-->
+    <color name="colorTextBrown">#8F4D1E</color>
+
+    <!--colors-->
+    <!--gray-->
+    <color name="gray1">#E3E3E3</color>
+    <color name="gray2">#cccccc</color>
+
+    <!--blue-->
+    <color name="blue1">#369DCA</color>
+</resources>

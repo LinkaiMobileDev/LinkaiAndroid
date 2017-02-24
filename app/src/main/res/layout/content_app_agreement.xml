@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.linkai.app.AppAgreement"
+    tools:showIn="@layout/activity_app_agreement"
+    android:background="#FFFFFF">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="90dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        >
+        <android.support.v7.widget.AppCompatImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/graphic1"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="300dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        >
+        <android.support.v7.widget.AppCompatImageView
+            android:layout_width="70dp"
+            android:layout_height="80dp"
+            android:background="@drawable/graphic2"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="390dp"
+        >
+        <android.support.v7.widget.AppCompatImageView
+            android:layout_width="100dp"
+            android:layout_height="120dp"
+            android:background="@drawable/graphic3"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="210dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center_horizontal"
+            >
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/imgLogo"
+                android:layout_width="180dp"
+                android:layout_height="60dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/ic_linkai_logo"
+                />
+        </RelativeLayout>
+
+
+
+            <TextView
+                 android:id="@+id/txtWelcome"
+                 android:textColor="@color/colorPrimaryDark"
+                 android:textSize="23sp"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center_horizontal"
+                 android:text="@string/title_welcome"
+                android:layout_marginTop="90dp"
+                android:fontFamily="times"
+
+                 />
+
+
+
+                    <TextView
+                        android:textColor="@android:color/secondary_text_light"
+                        android:textSize="14sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:maxLines="4"
+                        android:text="@string/content_service_message"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:layout_marginTop="15dp"
+
+                        />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:layout_gravity="center"
+            android:gravity="center">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                <TextView
+                    android:textColor="@android:color/secondary_text_light"
+                    android:textSize="11sp"
+                    android:layout_marginTop="30dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/content_TnC_message"
+                    android:textAlignment="center"
+                    />
+
+                <TextView
+                    android:id="@+id/txtTerms"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:text="@string/content_TnC_link"
+                    android:textSize="11sp"
+                    android:textColorLink="@android:color/secondary_text_light"
+                    />
+                </LinearLayout>
+        </LinearLayout>
+        <Button
+            android:id="@+id/btnContinue"
+            android:textAllCaps="false"
+            android:text="@string/btn_continue"
+            android:textAlignment="center"
+            android:textColor="#ffffff"
+            android:layout_gravity="center_horizontal"
+            android:textSize="20sp"
+            android:layout_width="180dp"
+            android:layout_height="50dp"
+            android:background="@drawable/app_button"
+            />
+
+    </LinearLayout>
+
+   <!-- <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:orientation="horizontal">
+        <TextView
+            android:text="2016 Linkai"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="20px"
+            android:textColor="@color/colorPrimary"
+            />
+            <TextView
+            android:id="@+id/txtPrivacy"
+            android:text="Privacy Policy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="20px"
+            android:textColor="#000000"
+            />
+    </LinearLayout>-->
+
+</RelativeLayout>

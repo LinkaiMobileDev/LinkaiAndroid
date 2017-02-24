@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.linkai.app"
+    android:installLocation="internalOnly">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <!-- to hide after testing -->
+    <uses-permission android:name="android.permission.READ_LOGS" />
+
+    <!-- features -->
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
+    <application
+        android:name="com.linkai.app.ChatApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <!--
+ ATTENTION: This was auto-generated to add Google Play services to your project for
+     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
+        -->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <activity
+            android:name="com.linkai.app.SingleChatBoxActivity"
+            android:parentActivityName="com.linkai.app.HomeActivity" />
+        <activity
+            android:name="com.linkai.app.LoginActivity"
+            android:excludeFromRecents="true"
+            android:label="@string/title_activity_signup"
+            android:noHistory="true"
+            android:screenOrientation="portrait" />
+
+        <service
+            android:name="com.linkai.app.services.SendMessageService"
+            android:exported="false" />
+
+        <receiver
+            android:name="com.linkai.app.Receivers.NetworkStateReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.linkai.app.Receivers.MessageReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="chat.message.received" />
+                <action android:name="group.message.received" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.linkai.app.Receivers.AppStartReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+                <action android:name="chat.start.service" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.linkai.app.HomeActivity"
+            android:configChanges="orientation"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+        </activity>
+
+        <service
+            android:name="com.linkai.app.services.UploadFileService"
+            android:exported="false" />
+        <service
+            android:name="com.linkai.app.services.DownloadFileService"
+            android:exported="false" />
+        <service
+            android:name="com.linkai.app.services.SyncContactsService"
+            android:exported="false" />
+
+        <activity
+            android:name="com.linkai.app.AppAgreement"
+            android:label="@string/title_activity_app_agreement"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.linkai.app.MobileVerificationActivity"
+            android:label="@string/title_activity_app_varification"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.linkai.app.UserProfileActivity"
+            android:label="@string/title_activity_user_profile"
+            android:theme="@style/AppTheme" />
+
+        <service
+            android:name="com.linkai.app.services.SyncGroupsService"
+            android:exported="false" />
+
+        <activity
+            android:name="com.linkai.app.GroupChatBoxActivity"
+            android:parentActivityName="com.linkai.app.HomeActivity" />
+        <activity android:name="com.linkai.app.GroupProfileActivity" />
+
+        <service
+            android:name="com.linkai.app.services.SyncProfileService"
+            android:exported="false" />
+
+        <activity
+            android:name="com.linkai.app.LinkaiPinEntryActivity"
+            android:label="@string/app_name" />
+        <activity
+            android:name="com.linkai.app.LinkaiContactsActivity"
+            android:label="@string/app_name" />
+        <activity
+            android:name="com.linkai.app.LinkaiAmountEntryActivity"
+            android:label="@string/app_name" />
+        <activity
+            android:name="com.linkai.app.LinkaiFeesPaidByActivity"
+            android:label="@string/app_name" />
+        <activity
+            android:name="com.linkai.app.LinkaiTransferTimeActivity"
+            android:label="@string/app_name" />
+
+        <service
+            android:name="com.linkai.app.services.MainService"
+            android:enabled="true"
+            android:exported="true"
+            android:stopWithTask="false" />
+
+        <activity
+            android:name="com.linkai.app.LinkaiGenerateLinkodActivity"
+            android:label="@string/title_activity_generate_linkod"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.linkai.app.LinkaiMyLinkodsActivity"
+            android:label="@string/title_activity_my_linkods" />
+        <activity
+            android:name="com.linkai.app.LinkaiRedeemActivity"
+            android:label="@string/title_activity_redeem_linkod" />
+        <activity android:name="com.linkai.app.LinkaiTransferConfirmationActivity" />
+        <activity
+            android:name="com.linkai.app.LinkaiSetPinActivity"
+            android:label="@string/app_name" />
+        <activity
+            android:name="com.linkai.app.LinkaiCreateEventStep1Activity"
+            android:label="@string/title_activity_create_event" />
+        <activity
+            android:name="com.linkai.app.LinkaiCreateEventStep2Activity"
+            android:label="@string/title_activity_create_event" />
+        <activity android:name="com.linkai.app.LinkaiCreateEventStep3Activity"
+            android:label="@string/title_activity_create_event"/>
+    </application>
+
+</manifest>

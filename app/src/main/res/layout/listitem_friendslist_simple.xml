@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="5dip"
+    >
+    <LinearLayout
+        android:orientation="horizontal" android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        >
+        <com.linkai.app.design.RoundedImageView
+            android:id="@+id/imgProfileThumb"
+            android:layout_width="60dip"
+            android:layout_height="60dip"
+            android:padding="5dip"
+            android:src="@drawable/ic_user"/>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+
+            android:id="@+id/llFriendDetailContainer"
+            android:orientation="vertical"
+            android:layout_marginTop="5dip"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Large Text"
+                android:id="@+id/lblFriendName"
+                android:maxLines="3"
+                android:maxWidth="200sp"
+                android:minWidth="200sp"
+                android:padding="3dip"
+                android:textSize="16dip"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New Text"
+                android:id="@+id/lblFriendPhone"
+                android:padding="2dip"
+                android:textSize="12dip"
+                android:textColor="@android:color/darker_gray"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</RelativeLayout>

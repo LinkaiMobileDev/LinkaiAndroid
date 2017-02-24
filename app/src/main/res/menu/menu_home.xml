@@ -1,0 +1,31 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.linkai.app.HomeActivity">
+    <item
+        android:id="@+id/action_refresh"
+        android:title="@string/action_refersh"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_new_group"
+        android:orderInCategory="3"
+        android:title="@string/action_add_group"
+        app:showAsAction="collapseActionView|ifRoom"
+        android:icon="@drawable/ic_group_add_white_24dp"/>
+
+    <item
+        android:id="@+id/action_linkai"
+        android:orderInCategory="1"
+        android:title="@string/action_linkai"
+        app:showAsAction="collapseActionView|ifRoom"
+        android:icon="@drawable/ic_action_linkai"/>
+
+    <item android:id="@+id/search"
+        android:orderInCategory="2"
+        android:title="@string/search_title"
+        android:icon="@drawable/ic_search_white_24dp"
+        app:showAsAction="collapseActionView|ifRoom"
+        app:actionViewClass="android.support.v7.widget.SearchView" />
+
+</menu>

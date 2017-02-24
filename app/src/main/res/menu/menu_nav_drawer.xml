@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <group android:id="@+id/menu_group_1" android:checkableBehavior="single" >
+        <item
+            android:id="@+id/nav_edit_name"
+
+            android:title="Edit your name" />
+        <item
+            android:id="@+id/nav_take_picture"
+
+            android:title="Take new picture" />
+        <item
+            android:id="@+id/nav_choose_from_gallery"
+
+            android:title="Choose photo from gallery" />
+
+    </group>
+    <group android:id="@+id/menu_group_2" android:checkableBehavior="all" >
+        <item
+            android:id="@+id/nav_add_contact"
+            android:icon="@drawable/ic_person_add_black_36dp"
+            android:title="Add contact" />
+        <item
+            android:id="@+id/nav_share"
+            android:icon="@drawable/ic_twitter_black_36dp"
+            android:title="Share Linkai" />
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/ic_settings_black_36dp"
+            android:title="Settings" />
+
+    </group>
+</menu>

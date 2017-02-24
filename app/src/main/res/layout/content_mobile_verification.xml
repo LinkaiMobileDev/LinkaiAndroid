@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingStart="@dimen/activity_horizontal_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingEnd="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.linkai.app.MobileVerificationActivity"
+    tools:showIn="@layout/activity_mobile_verification">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <!--<ProgressBar-->
+            <!--android:id="@+id/verific_progress"-->
+            <!--style="?android:attr/progressBarStyleLarge"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginBottom="8dp"-->
+            <!--android:visibility="gone" />-->
+
+        <!--<android.support.v7.widget.AppCompatImageView-->
+            <!--android:layout_width="200dip"-->
+            <!--android:layout_height="60dip"-->
+            <!--android:layout_gravity="center_horizontal"-->
+            <!--android:background="@drawable/ic_action_linkai"/>-->
+
+        <TextView
+            android:textColor="@android:color/black"
+            android:textSize="15dip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text=""
+            android:layout_marginTop="15dip"
+            android:gravity="center_horizontal"
+            />
+
+        <TextView
+            android:textColor="@android:color/black"
+            android:textSize="12dip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/mobile_varification_text_message"
+            android:layout_marginTop="40dip"
+            android:gravity="center_horizontal"
+            />
+
+        <TextView
+            android:textColor="@color/colorPrimary"
+            android:textSize="25dip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/mobile_varification_title_enter_your_code"
+            android:textAlignment="center"
+
+            android:layout_marginTop="40dip"
+            />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:textSize="20dip"
+                android:maxLength="10"
+                android:id="@+id/txtValidationCode"
+                android:layout_width="match_parent"
+                android:layout_height="50dip"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:inputType="number"
+                android:hint="@string/mobile_varification_hint_enter_access_code"
+                android:text=""
+                android:foregroundGravity="center_vertical"/>
+            <TextView
+                android:id="@+id/txtTimer"
+                android:text="2:00"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_gravity="center_vertical|right|end"
+                android:visibility="gone"/>
+        </FrameLayout>
+
+
+        <Button
+            android:id="@+id/btnValidate"
+            android:textAllCaps="false"
+            android:text="@string/mobile_varification_btn_validate"
+            android:textAlignment="center"
+            android:textColor="#ffffff"
+            android:layout_gravity="center_horizontal"
+            android:textSize="20sp"
+            android:layout_width="180sp"
+            android:layout_height="50sp"
+            android:layout_marginTop="60dp"
+            android:background="@drawable/app_button"
+            />
+
+        <TextView
+            android:id="@+id/txtViewResendText"
+            android:textSize="15dip"
+            android:layout_width="200dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/mobile_varification_text_message_resend"
+            android:textAlignment="center"
+            android:layout_marginTop="25dip"
+            android:visibility="gone"
+            />
+
+
+
+        <Button
+            android:id="@+id/btnResend"
+            android:textAllCaps="false"
+            android:text="@string/mobile_varification_btn_resend"
+            android:textAlignment="center"
+            android:textColor="#ffffff"
+            android:layout_gravity="center_horizontal"
+            android:textSize="20sp"
+            android:layout_width="180sp"
+            android:layout_height="50sp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/app_button"
+            android:visibility="gone"
+            />
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

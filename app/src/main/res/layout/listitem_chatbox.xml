@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="5dip"
+    >
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/llMessageContainer"
+        android:orientation="vertical"
+        android:background="@null"
+        android:paddingStart="16dp"
+        android:paddingLeft="16dp"
+        android:paddingEnd="16dp"
+        android:paddingRight="16dp"
+        >
+
+        <TextView
+            android:id="@+id/lblSender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|left"
+            android:textColor="@color/colorTextBrown"
+            android:text="+919459459657567"
+            android:layout_marginStart="5dip"
+            android:layout_marginLeft="5dip"
+            android:visibility="gone"
+            />
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/flOuterImgThumb"
+            android:visibility="gone">
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:id="@+id/imgFileThumb"
+                android:layout_gravity="center_horizontal"
+                android:padding="10dip"
+                android:visibility="visible"
+                />
+            <LinearLayout
+                android:id="@+id/llPlayIndicator"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:gravity="center"
+                android:visibility="gone">
+                <LinearLayout
+                    android:layout_width="100dp"
+                    android:layout_height="55dp"
+                    android:background="@drawable/overlay_message_indicator"
+                    android:gravity="center"
+                   >
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_play_circle_outline_white_48dp"/>
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/llDownloadIndicator"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:gravity="center"
+                android:visibility="gone">
+                <LinearLayout
+                    android:layout_width="100dp"
+                    android:layout_height="55dp"
+                    android:background="@drawable/overlay_message_indicator"
+                    android:gravity="center">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_arrow_down_bold_circle_outline_white_48dp"/>
+                </LinearLayout>
+
+            </LinearLayout>
+            <ProgressBar
+                android:id="@+id/prImageProgress"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                style="@android:style/Widget.ProgressBar.Inverse"
+                android:indeterminate="true"
+                android:progressDrawable="@drawable/message_progressbar"
+                android:layout_gravity="center_horizontal|center_vertical"/>
+
+        </FrameLayout>
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text=""
+            android:id="@+id/lblChatBoxListMessage"
+            android:layout_marginEnd="7dip"
+            android:layout_marginRight="7dip"
+            android:layout_marginStart="7dip"
+            android:layout_marginLeft="7dip"
+            android:padding="5dp"
+            android:textSize="16dip"/>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="right|end">
+            <ImageView
+                android:id="@+id/imgMsgStatus"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_gravity="center_vertical"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:id="@+id/lblChatBoxMessageTime"
+                android:layout_marginRight="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_gravity="right|end" />
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="?android:attr/spinnerItemStyle"
+    android:layout_width="wrap_content"
+    android:padding="3dp"
+    android:textColor="@color/common_plus_signin_btn_text_dark_disabled"
+    android:textSize="16dp"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+     />

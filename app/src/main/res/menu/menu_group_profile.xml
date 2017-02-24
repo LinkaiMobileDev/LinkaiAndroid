@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+    <item
+        android:id="@+id/action_add_member"
+        android:orderInCategory="100"
+        android:title="@string/action_add_member"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_person_add_white_36dp"/>
+    <item
+        android:id="@+id/action_exit_group"
+        android:orderInCategory="100"
+        android:title="@string/action_exit_group"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_exit_to_app_white_36dp"/>
+</menu>

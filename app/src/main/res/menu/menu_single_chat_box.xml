@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_linkai"
+        android:orderInCategory="1"
+        android:title="@string/action_linkai"
+        app:showAsAction="collapseActionView|ifRoom"
+        android:icon="@drawable/ic_action_linkai"/>
+    <!--<item-->
+        <!--android:id="@+id/action_new_user"-->
+        <!--android:orderInCategory="2"-->
+        <!--android:title="@string/action_add_group"-->
+        <!--app:showAsAction="collapseActionView|ifRoom"-->
+        <!--android:icon="@drawable/ic_account_plus_white_24dp"/>-->
+
+    <item
+        android:id="@+id/action_attachment"
+        android:orderInCategory="3"
+        android:title="Attach"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_attach"/>
+
+    <item
+        android:id="@+id/action_clear_chat"
+        android:orderInCategory="4"
+        android:title="@string/action_clear_chat"
+        app:showAsAction="never"/>
+
+</menu>

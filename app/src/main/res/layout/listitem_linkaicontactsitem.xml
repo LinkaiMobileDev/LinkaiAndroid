@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    >
+    <View
+        android:id="@+id/viewSectionDivider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:background="@android:color/darker_gray"
+        android:layout_alignParentTop="true"/>
+    <LinearLayout
+        android:id="@+id/llSectionLetterContainer"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal"
+        android:layout_below="@id/viewSectionDivider"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/txtSectionText"
+            android:text="A"
+            android:padding="5dp"
+            android:textAllCaps="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:textColor="@color/colorPrimary"/>
+    </LinearLayout>
+    <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/llFriendDetailContainer"
+            android:orientation="vertical"
+            android:layout_marginTop="5dip"
+            android:layout_toRightOf="@+id/llSectionLetterContainer"
+            android:layout_toEndOf="@+id/llSectionLetterContainer"
+            android:layout_centerVertical="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="rfsdfsdf sdf sdf sdf sdf sdf sdfsdf  sdfsdf"
+                android:maxEms="14"
+                android:ellipsize="end"
+                android:id="@+id/lblFriendName"
+                android:maxLines="1"
+                android:padding="3dip"
+                android:textSize="16sp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New Text"
+                android:id="@+id/lblFriendPhone"
+                android:padding="2dip"
+                android:textSize="12dip"
+                android:textColor="@android:color/darker_gray"/>
+
+        </LinearLayout>
+    <com.linkai.app.design.RoundedImageView
+        android:id="@+id/imgProfileThumb"
+        android:layout_width="50dip"
+        android:layout_height="50dip"
+        android:layout_marginTop="10dip"
+        android:padding="5dip"
+        android:src="@drawable/ic_user"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_centerVertical="true"/>
+
+</RelativeLayout>

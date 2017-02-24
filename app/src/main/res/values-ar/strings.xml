@@ -1,0 +1,226 @@
+<resources>
+    <string name="app_name">لينكاي</string>
+    <string name="title_activity_signup">تسجيل</string>
+    <string name="search_title">بحث</string>
+    <string name="title_activity_generate_linkod">إخراج لينكود</string>
+    <string name="title_activity_my_linkods">اللينكودات الخاصة بي</string>
+    <string name="title_activity_redeem_linkod">استعمال لينكود</string>
+    <string name="title_activity_create_event">انشاء حدث لينكاي</string>
+
+    <!-- menu action strings-->
+    <string name="action_settings">إعدادات</string>
+    <string name="action_refersh">تحديث</string>
+    <string name="action_add_group">إضافة حدث</string>
+    <string name="action_linkai">خدمة لينكاي</string>
+    <string name="action_add_member">إضافة عضو</string>
+    <string name="action_exit_group">انسحب من الحدث</string>
+
+    <!--strings for different event types-->
+    <string name="event_birthday">عيد ميلاد</string>
+    <string name="event_wedding">زفاف</string>
+    <string name="event_selfa">سلفة</string>
+    <string name="event_others">أشياء أخرى</string>
+
+
+    <!--layout strings-->
+    <!--layout: activity app agreement-->
+    <string name="title_welcome">مرحبا بك في لينكاي</string>
+    <string name="content_service_message">.تبادل أكثر بكثير من مجرد رسائل مع مستخدمي لينكاي\r\n.خدمات مميزة لزبناء مميزين</string>
+    <string name="content_TnC_message">باختيارك الاستمرار فإنك توافق على  </string>
+    <string name="content_TnC_link">الأحكام والشروط</string>
+
+    <!--layout: activity group profile-->
+    <string name="group_profile_title_members">أعضاء</string>
+
+    <!--layout: activity group profile-->
+    <string name="amount_entry_title_amount">مبلغ</string>
+
+    <!--layout: activity linkai contacts-->
+    <string name="linkai_contacts_title_linkaito">لينكاي مع</string>
+
+    <!--layout: activity linkai create event step 1-->
+    <string name="create_event_1_hint_event_name">اسم الحدث</string>
+    <string name="create_event_1_title_event_icen">اختر رمز الحدث أو التقاط صورة</string>
+    <string name="create_event_1_title_targetAmount">مبلغ الحدث</string>
+    <string name="create_event_1_text_beneficiary_name">إسم المستفيد</string>
+    <string name="create_event_1_text_beneficiary_phone">رقم هاتف المستفيد</string>
+
+    <!--layout: activity linkai create event step 2-->
+    <string name="create_event_2_title_the_event" >الحدث</string>
+    <string name="create_event_2_add_participants" >أضف مشاركين (إلى حدود 20 مشترك)</string>
+
+    <!--layout: activity linkai create event step 3-->
+    <string name="create_event_3_text_success_message" >.تم إنشاء الحدث بنجاح</string>
+    <string name="create_event_3_title_event_balance" >رصيد الحدث</string>
+    <string name="create_event_3_title_event_participants" >المشتركين في الحدث</string>
+
+    <!--layout: activity linkai fees paid by-->
+    <string name="fees_paidby_title_fees_paid_by">الرسوم مدفوعة من طرف</string>
+    <string name="fees_paidby_text_rd_me">أنا</string>
+    <string name="fees_paidby_text_rd_receiver">المستلم</string>
+    <string name="fees_paidby_text_rd_5050">50/50</string>
+
+    <!--layout: activity linkai generate linkod-->
+    <string name="generate_linkod_text_share">أشارك</string>
+    <string name="generate_linkod_title_amount">المبلغ</string>
+    <string name="generate_linkod_btn_get_linkod">الحصول على لينكود</string>
+    <string name="generate_linkod_title_find_linkai_agent">العثور على وكيل لينكاي</string>
+    <string name="generate_linkod_text_search">البحث</string>
+    <string name="generate_linkod_text_near_to_me">بالقرب مني</string>
+    <string name="generate_linkod_btn_help">مساعدة</string>
+    <string name="generate_linkod_my_linkods">لينكوداتي</string>
+
+    <!--layout: activity linkai pin entry-->
+    <string name="pin_entry_title_security_pin">الرقم السري للحماية</string>
+    <string name="pin_entry_title_pin">الرقم السري</string>
+
+    <!--layout: activity linkai redeem-->
+    <string name="linkai_redeem_title_amount">المبلغ</string>
+    <string name="linkai_redeem_title_linkod">لينكود</string>
+    <string name="linkai_redeem_btn_redeem_linkod">استرداد قيمة اللينكود</string>
+    <string name="linkai_redeem_title_history">سجل</string>
+
+    <!--layout: activity linkai set pin-->
+    <string name="set_pin_title_security_pin">الرقم السري للحماية</string>
+    <string name="set_pin_title_pin">الرقم السري</string>
+    <string name="set_pin_title_confirmation">تأكيد</string>
+
+    <!--layout: activity linkai transfer confirmation-->
+    <string name="transfer_confirmation_title_your_confirmation">تأكيدك</string>
+    <string name="transfer_confirmation_title_pin">الرقم السري</string>
+    <string name="transfer_confirmation_rd_TnC">.أنا أقبل الشروط والأحكام</string>
+
+    <!--layout: activity linkai transfer time-->
+    <string name="transfer_time_title_transfer_time">وقت التحويل</string>
+    <string name="transfer_time_rd_now">الآن</string>
+    <string name="transfer_time_rd_later">في وقت لاحق</string>
+    <string name="transfer_time_rd_scheduled">درج في الجدول</string>
+
+    <!--layout: activity login-->
+    <string name="login_login_title_select_country">اختر بلدك</string>
+    <string name="login_login_hint_country">البلد</string>
+    <string name="login_login_title_choose_currency">اختر العملة</string>
+    <string name="login_login_title_enter_phone">أدخل رقم هاتفك</string>
+    <string name="login_login_hint_phone">الهاتف</string>
+
+    <!--layout: activity mobile varification-->
+    <string name="mobile_varification_text_message">.SMS ستتوصل بالرمز عبر رسالة\n.يمكن أن يستغرق وصول الرسالة 3 دقائق</string>
+    <string name="mobile_varification_title_enter_your_code">:أدخل الرمز</string>
+    <string name="mobile_varification_hint_enter_access_code">أدخل رمز الدخول:</string>
+    <string name="mobile_varification_btn_validate">تأكيد</string>
+    <string name="mobile_varification_text_message_resend">.إذا لم تحصل على الرمز. انقر هنا</string>
+    <string name="mobile_varification_btn_resend">أعد إرسال الرمز</string>
+
+    <!--layout: activity user profile-->
+    <string name="user_profile_header_title">بياناتك الشخصية بلينكاي</string>
+    <string name="user_profile_hint_name">الاسم</string>
+    <string name="user_profile_hint_phone">رقم الهاتف</string>
+    <string name="user_profile_hint_email">البريد الإلكتروني</string>
+    <string name="user_profile_hint_address">العنوان</string>
+
+    <!--layout: fragment attachment view-->
+    <string name="attachment_gallary">الصور</string>
+    <string name="attachment_video">فيديو</string>
+    <string name="attachment_audio">تسجيل صوتي</string>
+
+    <!--layout : fragment my linkai-->
+    <string name="mylinkai_title_linkai_balance">رصيدي لينكاي هو</string>
+    <string name="mylinkai_title_mylinkod">لينكودي</string>
+    <string name="mylinkai_text_generate">استخراج</string>
+    <string name="mylinkai_text_redeem">استعمال</string>
+    <string name="mylinkai_title_mylinkai_history">سجل معاملاتي بلينكاي</string>
+    <string name="mylinkai_title_period">الفترة</string>
+    <string name="mylinkai_title_date_from">من</string>
+    <string name="mylinkai_title_date_to">إلى</string>
+
+    <!--layout : listitem chat transfer-->
+    <string name="listitem_transfer_text_no">لا </string>
+    <string name="listitem_transfer_text_yes">نعم </string>
+
+    <!--layout : listitem friendslist-->
+    <string name="listitem_friends_btn_invite">دعوة</string>
+
+    <!--layout : listitem mylinkods list-->
+    <string name="listitem_linkods_title_expiry">انتهاء الصلاحية</string>
+
+    <!--activity java strings-->
+    <!--activity : AppAgreement.java-->
+    <string name="app_agreement_alert_title_grant_permission">الرجاء منح إذن</string>
+    <string name="app_agreement_alert_content_grant_permission">التطبيق لا يمكن أن يشتغل إذا نفي أي إذن. هل ترغب في منح أذونات؟</string>
+
+    <!--activity : group chatbox activity-->
+    <string name="group_chatbox_alert_title_message_sending_denied">لا يمكن بعث الرسالة</string>
+    <string name="group_chatbox_alert_content_message_sending_denied">.حاليا أنت لست عضوا في هذا الحدث</string>
+
+    <!--activity : group profile activity-->
+    <string name="group_profile_alert_title_exit_confirmation">خروج من الحدث</string>
+    <string name="group_profile_alert_content_exit_confirmation">هل أنت متأكد من قرارك؟</string>
+
+    <!--activity : home activity-->
+    <string name="home_nav_text_edit_name">تعديل اسمك</string>
+    <string name="home_nav_text_new_picture">أخذ صورة جديدة</string>
+    <string name="home_nav_text_choose_from_gallery">اختيار صورة من السجل</string>
+    <string name="home_nav_text_add_contact">إضافة جهة اتصال</string>
+    <string name="home_nav_text_share_linkai">أشارك لينكاي</string>
+    <string name="home_nav_text_settings">اعدادات</string>
+    <!--home activity > home pager adapter-->
+    <string name="home_pager_tab_chats">محادثات</string>
+    <string name="home_pager_tab_contacts">جهات الاتصال</string>
+    <string name="home_pager_tab_mylinkai">لينكاي الخاص بي</string>
+
+    <!--activity : linkai create event step 2-->
+    <string name="create_event_alert_title_empty_participants">قائمة المشاركين فارغة</string>
+    <string name="create_event_alert_content_empty_participants">.إضافة مشارك واحد على الأقل</string>
+
+    <!--activity : linkai fees paid by activity-->
+    <string name="fees_paidby_alert_title_choose_payment_option">اختر وسيلة الدفع</string>
+    <string name="fees_paidby_alert_content_choose_payment_option">".الرجاء اختيار  من يدفع الرسوم"</string>
+
+    <!--activity : linkai set pin-->
+    <string name="set_pin_alert_title_failed_to_set_pin">فشل في تكوين الرمز السري</string>
+    <string name="set_pin_alert_content_failed_to_set_pin">.لا يمكن إتمام العملية. حاول مرة ثانية</string>
+
+    <!--activity : linkai transfer confirmation activity-->
+    <string name="transfer_confirm_alert_title_trans_exec_failed">فشل عملية التحويل</string>
+    <string name="transfer_confirm_alert_content_trans_exec_failed">.لا يمكن إتمام العملية. حاول مرة ثانية</string>
+
+    <!--activity : transfer time activity-->
+    <string name="transfer_time_alert_title_choose_time">!!انتباه</string>
+    <string name="transfer_time_alert_content_choose_time">.الرجاء اختيار وقت التحويل</string>
+
+    <!--activity : login activity-->
+    <string name="login_alert_title_internet_notification">لا يمكن ربط الاتصال</string>
+    <string name="login_alert_content_internet_notification">.مطلوب شبكة الانترنت للاستفادة من خدمة لينكاي.الرجاء التحقق من شبكة الانترنت خاصتك وحاول مرة أخرى</string>
+    <string name="login_alert_title_confirmation">تأكيد</string>
+    <string name="login_alert_content1_confirmation">.اضغط الزر نعم إذا كان الرقم صحيح</string>
+    <string name="login_alert_content2_confirmation">.سيتم إرسال رسالة تحتوي على رمز الوصول لهذا الرقم</string>
+    <string name="login_alert_btn_confirm">تأكيد</string>
+    <string name="login_alert_btn_edit">تعديل</string>
+    <string name="login_alert_alert_title_signup_failed">!!فشل انشاء الحساب</string>
+    <string name="login_alert_alert_content_signup_failed">.حدث خطأ أثناء الاشتراك. حاول ثانية</string>
+
+    <!--activity : mobile verification activity-->
+    <string name="mobile_verification_alert_title_code_validation_failed">فشل التحقق من صحة رمز</string>
+    <string name="mobile_verification_alert_content_code_validation_failed">.لا يمكن إتمام العملية. حاول ثانية</string>
+    <string name="mobile_verification_alert_title_signup_failed">فشل انشاء الحساب</string>
+    <string name="mobile_verification_alert_content_signup_failed">.لا يمكن إتمام العملية. حاول ثانية</string>
+    <string name="mobile_verification_alert_title_resending_failed">فشل إعادة الإرسال</string>
+    <string name="mobile_verification_alert_content_resending_failed">.لا يمكن إتمام العملية. حاول ثانية</string>
+
+    <!--common strings-->
+    <string name="btn_continue">استمر</string>
+    <string name="hint_enter_message">كتابة رسالة</string>
+    <string name="hint_search">بحث</string>
+    <string name="text_empty">فارغ</string>
+    <string name="alert_btn_ok">نعم</string>
+    <string name="alert_btn_Yes">نعم</string>
+    <string name="alert_btn_No">لا</string>
+    <string name="alert_btn_cancel">إلغاء</string>
+    <string name="alert_title_error">!!خطأ</string>
+    <string name="alert_content_error_try">.لا يمكن إتمام العملية. حاول ثانية</string>
+    <string name="alert_title_signin">.انتهت صلاحية جلسة الدخول الخاصة بك</string>
+    <string name="alert_content_signin">تحتاج إلى تسجيل الدخول والمحاولة مرة أخرى</string>
+    <string name="alert_btn_signin">تسجيل الدخول</string>
+    <string name="alert_title_signin_failed">فشل تسجيل الدخول</string>
+    <string name="alert_content_signin_failed">.لا يمكن تسجيل الدخول. حاول بعد بعض الوقت</string>
+</resources>
