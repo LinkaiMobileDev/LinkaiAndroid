@@ -372,9 +372,9 @@ public class SingleChatBoxActivity extends AppCompatActivity {
         AdapterView.AdapterContextMenuInfo info= (AdapterView.AdapterContextMenuInfo) menuInfo;
         SelectedMsg= (ChatMessage) adapter.getItem(info.position);
         if(SelectedMsg.getType().equals(ChatMessage.TYPE_TEXT)) {
-            menu.add(info.position, 0, 0, "Copy");
+            menu.add(info.position, 0, 0, R.string.text_copy);
         }
-        menu.add(info.position,1,0, "Delete");
+        menu.add(info.position,1,0, R.string.text_delete);
 
         //Log.d(TAG, "onCreateContextMenu: position-"+info.position+" name-"+member.getName());
 

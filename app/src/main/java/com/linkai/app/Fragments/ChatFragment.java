@@ -7,7 +7,9 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.util.Log;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -37,6 +39,7 @@ public class ChatFragment extends Fragment {
     private FloatingActionButton fab;
     ChatHomeListAdapter chatHomeListAdapter=null;
     ArrayList<Chat> chats=new ArrayList<Chat>();
+    Chat selectedChat;
 
     Common common;
     Context context;
@@ -114,27 +117,52 @@ public class ChatFragment extends Fragment {
     }
 
 
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        AdapterView.AdapterContextMenuInfo info= (AdapterView.AdapterContextMenuInfo) menuInfo;
+        selectedChat= (Chat) chatHomeListAdapter.getItem(info.position);
+        if(selectedChat.LastMessage!=null && !selectedChat.LastMessage.getBody().trim().equals("")){
+            menu.add(info.position,0,0,R.string.text_delete);
+        }
 
+    }
 
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        if(item.getItemId()==0){
+//            Log.d(TAG, "onContextItemSelected: "+selectedChat.getChatboxType()+"-"+selectedChat.getChatId()+"-"+selectedChat.getChatName());
+            if(selectedChat.getChatboxType().equals(Const.CHATBOX_TYPE.SINGLE.toString())){
+//                Log.d(TAG, "onContextItemSelected: "+selectedChat.getChatId()+"-"+selectedChat.getChatName());
+                db.deleteAllMessages(selectedChat.getChatId());
+            }
+            else{
+                db.deleteAllGroupMessages(selectedChat.getChatId());
+            }
+            showAllChats(null);
+        }
+        return super.onContextItemSelected(item);
+    }
 
     public void showAllChats(String searchQuery){
         if(!isAdded()){
-            Log.d(TAG, "showAllChats: notAdded");
+//            Log.d(TAG, "showAllChats: notAdded");
             return;
         }
         chats.clear();
         chats.addAll(db.getChats(searchQuery));
-        Log.d(TAG, "showAllChats: size-"+chats.size());
+//        Log.d(TAG, "showAllChats: size-"+chats.size());
         if(chatHomeListAdapter==null) {
             chatHomeListAdapter = new ChatHomeListAdapter(this.getActivity(), chats);
             chatHomeListAdapter.setSearchQry(searchQuery);
             lstChats.setAdapter(chatHomeListAdapter);
-            Log.d(TAG, "showAllChats: null");
+            registerForContextMenu(lstChats);
+//            Log.d(TAG, "showAllChats: null");
         }
         else{
             chatHomeListAdapter.setSearchQry(searchQuery);
             chatHomeListAdapter.notifyDataSetChanged();
-            Log.d(TAG, "showAllChats: not null");
+//            Log.d(TAG, "showAllChats: not null");
         }
 
     }
