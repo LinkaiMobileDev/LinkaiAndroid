@@ -282,6 +282,11 @@ public class MobileVerificationActivity extends AppCompatActivity {
                 return headers;
             }
         };
+        //        setting default retry policy
+        request.setRetryPolicy(new DefaultRetryPolicy(
+                (int) TimeUnit.SECONDS.toMillis(20),
+                0,  // maxNumRetries = 0 means no retry
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         RequestQueue requestQueue=Volley.newRequestQueue(context);
         requestQueue.add(request);
     }
