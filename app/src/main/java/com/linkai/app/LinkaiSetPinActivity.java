@@ -132,7 +132,7 @@ public class LinkaiSetPinActivity extends AppCompatActivity {
                     @Override
                     public void onError(JSONObject jsonObject) {
                         showProgress(false,null);
-                        AlertDialog alertBuilder=new AlertDialog.Builder(context).create();
+                        AlertDialog alertBuilder=new AlertDialog.Builder(LinkaiSetPinActivity.this).create();
                         alertBuilder.setTitle(res.getString(R.string.alert_title_signin_failed));
                         alertBuilder.setMessage(res.getString(R.string.alert_content_signin_failed));
                         alertBuilder.setButton(AlertDialog.BUTTON_NEUTRAL, res.getString(R.string.alert_btn_ok),

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.Looper;
+import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
 import com.linkai.app.Utils.LinkaiUtils;
@@ -73,7 +74,7 @@ public class MyXMPP {
     private static Context context;
     Common common;
     DatabaseHandler db;
-
+    private LocalBroadcastManager localBroadcastManager;
 //    private static final String DOMAIN = "hpfreddy";
 //    private static final String HOST = "192.168.1.100";
     private static final String DOMAIN = "1.1.1.1";
@@ -82,6 +83,7 @@ public class MyXMPP {
     private String chatId ="";
     private String passWord = "";
     private String chatName="";
+
 
     public static AbstractXMPPConnection connection ;
     ChatManager chatmanager ;
@@ -110,6 +112,7 @@ public class MyXMPP {
         this.context=_context;
         common=new Common(context);
         db=Const.DB;
+        localBroadcastManager=LocalBroadcastManager.getInstance(context);
         ChatUser user=db.getUser();
         if(user!=null) {
             this.chatId = user.getJabberId();
@@ -238,10 +241,10 @@ public class MyXMPP {
                                 if(add_message)id=db.addMessage(msgObj);
                                 Log.d(TAG, "processMessage: id-"+id);
                                 if(id!=-1) {
-                                    context.sendBroadcast(new Intent("chat.message.received").putExtra("id",""+id).putExtra("from",m_from));
+                                    localBroadcastManager.sendBroadcast(new Intent("chat.message.received").putExtra("id",""+id).putExtra("from",m_from));
                                 }
                                 else{
-                                    context.sendBroadcast(new Intent("chat.view.refresh"));
+                                    localBroadcastManager.sendBroadcast(new Intent("chat.view.refresh"));
                                 }
                             }
 
@@ -253,7 +256,7 @@ public class MyXMPP {
                             ChatMessage msg=db.getMessageByReceiptId(readReceipt.getReceiptId());
                             msg.setStatus(ChatMessage.STATUS_READ);
                             db.updateMessage(msg);
-                            context.sendBroadcast(new Intent("chat.view.refresh"));
+                            localBroadcastManager.sendBroadcast(new Intent("chat.view.refresh"));
                         }
                         else{
                             //                            if chat state received or message read status received
@@ -261,13 +264,13 @@ public class MyXMPP {
                             if (msg_xml.contains(ChatState.composing.toString()))
                             {
                                 //                sending broadcast with presence status
-                                context.sendBroadcast(new Intent("chat.chatstate.changed").putExtra("from", m_from).putExtra("status", true));
+                                localBroadcastManager.sendBroadcast(new Intent("chat.chatstate.changed").putExtra("from", m_from).putExtra("status", true));
 
                             }
                             else if (msg_xml.contains(ChatState.paused.toString()))
                             {
                                 //                sending broadcast with presence status
-                                context.sendBroadcast(new Intent("chat.chatstate.changed").putExtra("from", m_from).putExtra("status", false));
+                                localBroadcastManager.sendBroadcast(new Intent("chat.chatstate.changed").putExtra("from", m_from).putExtra("status", false));
 
                             }
 
@@ -339,7 +342,7 @@ public class MyXMPP {
 //                    Log.d(TAG, "presenceChanged1: "+frnd);
 //                }
 //                sending broadcast with presence status
-                context.sendBroadcast(new Intent("chat.presence.changed").putExtra("from", m_from).putExtra("status", status));
+                localBroadcastManager.sendBroadcast(new Intent("chat.presence.changed").putExtra("from", m_from).putExtra("status", status));
             }
         });
 //end roaster listener
@@ -375,7 +378,7 @@ public class MyXMPP {
 //                update message in db
                 db.updateMessage(msg);
                 //Log.d("myxmpp", "onReceiptReceived: messsage details "+msg.getTo()+" "+msg.getStatus()+" "+msg.getID()+" "+msg.getReceiptID()+ "="+receiptId);
-                context.sendBroadcast(new Intent("chat.view.refresh"));
+                localBroadcastManager.sendBroadcast(new Intent("chat.view.refresh"));
             }
         });
 
@@ -584,7 +587,7 @@ public class MyXMPP {
         }
 //        send broadcast after getting roaster
         //Log.d("Roster", "Sending Broadcast: " );
-        context.sendBroadcast(new Intent("chat.roster.received"));
+        localBroadcastManager.sendBroadcast(new Intent("chat.roster.received"));
 
     }
 
@@ -1111,10 +1114,10 @@ public class MyXMPP {
 //               broadcasting notification
                 if(msg_id!=-1 && msgObj.getType().equals(ChatMessage.TYPE_NOTIFICATION)) {
 //                    Log.d(TAG, "processMessage: sending notification broadcast");
-                    context.sendBroadcast(new Intent("group.notification.received"));
+                    localBroadcastManager.sendBroadcast(new Intent("group.notification.received"));
                 }
                 else if(msg_id!=-1){
-                    context.sendBroadcast(new Intent("group.message.received").putExtra("id", ""+msg_id).putExtra("groupId",groupId));
+                    localBroadcastManager.sendBroadcast(new Intent("group.message.received").putExtra("id", ""+msg_id).putExtra("groupId",groupId));
                 }
             }
         }

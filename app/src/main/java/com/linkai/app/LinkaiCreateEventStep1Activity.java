@@ -107,7 +107,7 @@ public class LinkaiCreateEventStep1Activity extends AppCompatActivity {
         txtAmount= (EditText) findViewById(R.id.txtAmount);
         popupList=new ListView(this);
 
-        listDialogueBuilder=new AlertDialog.Builder(this);
+        listDialogueBuilder=new AlertDialog.Builder(LinkaiCreateEventStep1Activity.this);
         allFriends=db.getAllFriends(Const.FRIEND_SUBSCRIPTION_STATUS.SUBSCRIBED);
         popupAdapter=new SimpleFriendsListAdapter(this,allFriends);
         popupList.setAdapter(popupAdapter);

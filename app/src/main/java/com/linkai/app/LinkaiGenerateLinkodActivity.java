@@ -8,6 +8,7 @@ import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -30,6 +31,7 @@ public class LinkaiGenerateLinkodActivity extends AppCompatActivity {
     Context context;
     SharedPreferences prefs;
     private BroadcastReceiver broadcastReceiver;
+    private LocalBroadcastManager localBroadcastManager;
 
     private Toolbar toolbar;
     private Spinner spinnerCurrency;
@@ -47,6 +49,7 @@ public class LinkaiGenerateLinkodActivity extends AppCompatActivity {
         setContentView(R.layout.activity_linkai_generate_linkod);
         context=this.getApplicationContext();
         prefs = context.getSharedPreferences(Const.LINKAI_SHAREDPREFERENCE_FILE, Context.MODE_PRIVATE);
+        localBroadcastManager=LocalBroadcastManager.getInstance(context);
         //        actionbar
         toolbar= (Toolbar) findViewById(R.id.toolbar);
         this.setSupportActionBar(toolbar);
@@ -126,7 +129,7 @@ public class LinkaiGenerateLinkodActivity extends AppCompatActivity {
             }
         };
         try{
-            context.registerReceiver(broadcastReceiver,new IntentFilter("linkai.view.refresh"));
+            localBroadcastManager.registerReceiver(broadcastReceiver,new IntentFilter("linkai.view.refresh"));
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -138,7 +141,7 @@ public class LinkaiGenerateLinkodActivity extends AppCompatActivity {
 
 //        UNREGISTER BROADCAST
         try {
-            context.unregisterReceiver(broadcastReceiver);
+            localBroadcastManager.unregisterReceiver(broadcastReceiver);
         }
         catch (Exception e){
 

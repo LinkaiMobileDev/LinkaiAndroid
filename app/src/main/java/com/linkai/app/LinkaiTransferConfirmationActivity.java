@@ -9,6 +9,7 @@ import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -55,6 +56,7 @@ public class LinkaiTransferConfirmationActivity extends AppCompatActivity {
     private final String TAG="TransferConfirmation";
 
     private BroadcastReceiver chatBroadReceiver;
+    private LocalBroadcastManager localBroadcastManager;
     private MyXMPP xmpp ;
     private Common common;
     private Context context;
@@ -101,6 +103,7 @@ public class LinkaiTransferConfirmationActivity extends AppCompatActivity {
         xmpp=((ChatApplication)getApplication()).getMyXMPPInstance();
         prefs = context.getSharedPreferences(Const.LINKAI_SHAREDPREFERENCE_FILE, Context.MODE_PRIVATE);
         res=context.getResources();
+        localBroadcastManager=LocalBroadcastManager.getInstance(context);
 
         chatId=currentIntent.getStringExtra("chatId");
         friend=db.getFriendByJabberId(chatId);
@@ -199,8 +202,8 @@ public class LinkaiTransferConfirmationActivity extends AppCompatActivity {
             }
         };
         try{
-            this.registerReceiver(chatBroadReceiver,new IntentFilter("chat.presence.changed"));
-            this.registerReceiver(chatBroadReceiver,new IntentFilter("chat.chatstate.changed"));
+            localBroadcastManager.registerReceiver(chatBroadReceiver,new IntentFilter("chat.presence.changed"));
+            localBroadcastManager.registerReceiver(chatBroadReceiver,new IntentFilter("chat.chatstate.changed"));
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -214,7 +217,7 @@ public class LinkaiTransferConfirmationActivity extends AppCompatActivity {
 
 //        UNREGISTER BROADCAST
         try {
-            context.unregisterReceiver(chatBroadReceiver);
+            localBroadcastManager.unregisterReceiver(chatBroadReceiver);
         }
         catch (Exception e){
 
@@ -267,7 +270,7 @@ public class LinkaiTransferConfirmationActivity extends AppCompatActivity {
                 @Override
                 public void onError(JSONObject jsonObject) {
                     showProgress(false,null);
-                    AlertDialog alertBuilder=new AlertDialog.Builder(context).create();
+                    AlertDialog alertBuilder=new AlertDialog.Builder(LinkaiTransferConfirmationActivity.this).create();
                     alertBuilder.setTitle(res.getString(R.string.alert_title_signin_failed));
                     alertBuilder.setMessage(res.getString(R.string.alert_content_signin_failed));
                     alertBuilder.setButton(AlertDialog.BUTTON_NEUTRAL, res.getString(R.string.alert_btn_ok),

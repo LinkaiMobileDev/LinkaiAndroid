@@ -3,6 +3,7 @@ package com.linkai.app.services;
 import android.app.IntentService;
 import android.content.Intent;
 import android.os.Environment;
+import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
 import com.linkai.app.R;
@@ -23,6 +24,7 @@ public class UploadFileService extends IntentService {
     public static boolean IS_ALIVE=false;
     DatabaseHandler db;
     Common common;
+    LocalBroadcastManager localBroadcastManager;
     FileHandler fileHandler;
     String fileRoot;
     public UploadFileService() {
@@ -36,12 +38,13 @@ public class UploadFileService extends IntentService {
         db= Const.DB;
         common=new Common(this.getApplicationContext());
         fileHandler=new FileHandler(this.getApplicationContext());
+        localBroadcastManager=LocalBroadcastManager.getInstance(this.getApplicationContext());
         fileRoot=Environment.getExternalStorageDirectory() + File.separator +this.getResources().getString(R.string.dir_sent)+File.separator;
         if(!IS_ALIVE){
             IS_ALIVE=true;
         }
         if (intent != null && common.isNetworkAvailable()) {
-            this.sendBroadcast(new Intent("chat.view.refresh"));
+            localBroadcastManager.sendBroadcast(new Intent("chat.view.refresh"));
 //            uploading single chat files
             uploadSingleChatFiles();
 //            uploading groupChat files
@@ -64,7 +67,7 @@ public class UploadFileService extends IntentService {
                     message.setFileStatus(1);
                     db.updateMessage(message);
                     //            send broadcast to refresh chat box if file uploaded successfully
-                    this.sendBroadcast(new Intent("chat.view.refresh"));
+                    localBroadcastManager.sendBroadcast(new Intent("chat.view.refresh"));
 //                        call send message_service
                     common.callSendMessageService();
                 }
@@ -90,7 +93,7 @@ public void uploadGroupChatFiles(){
                 message.setFileStatus(1);
                 db.updateGroupMessage(message);
                 //            send broadcast to refresh chat box if file uploaded successfully
-                this.sendBroadcast(new Intent("chat.view.refresh"));
+                localBroadcastManager.sendBroadcast(new Intent("chat.view.refresh"));
 //                        call send message_service
                 common.callSendMessageService();
             }

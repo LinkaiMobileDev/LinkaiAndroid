@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -42,6 +43,7 @@ public class LinkaiFeesPaidByActivity extends AppCompatActivity {
     private MyXMPP xmpp;
     private Common common;
     private BroadcastReceiver chatBroadReceiver;
+    private LocalBroadcastManager localBroadcastManager;
     Resources res;
 
     private RadioGroup radioGp=null;
@@ -69,6 +71,7 @@ public class LinkaiFeesPaidByActivity extends AppCompatActivity {
         xmpp=((ChatApplication)getApplication()).getMyXMPPInstance();
         common=new Common(context);
         res=context.getResources();
+        localBroadcastManager=LocalBroadcastManager.getInstance(context);
 //        actionbar
         toolbar= (Toolbar) findViewById(R.id.toolbar);
         this.setSupportActionBar(toolbar);
@@ -147,8 +150,8 @@ public class LinkaiFeesPaidByActivity extends AppCompatActivity {
             }
         };
         try{
-            this.registerReceiver(chatBroadReceiver,new IntentFilter("chat.presence.changed"));
-            this.registerReceiver(chatBroadReceiver,new IntentFilter("chat.chatstate.changed"));
+            localBroadcastManager.registerReceiver(chatBroadReceiver,new IntentFilter("chat.presence.changed"));
+            localBroadcastManager.registerReceiver(chatBroadReceiver,new IntentFilter("chat.chatstate.changed"));
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -162,7 +165,7 @@ public class LinkaiFeesPaidByActivity extends AppCompatActivity {
 
 //        UNREGISTER BROADCAST
         try {
-            context.unregisterReceiver(chatBroadReceiver);
+            localBroadcastManager.unregisterReceiver(chatBroadReceiver);
         }
         catch (Exception e){
 

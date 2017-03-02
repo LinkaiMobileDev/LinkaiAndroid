@@ -12,6 +12,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -53,6 +54,7 @@ public class GroupChatBoxActivity extends AppCompatActivity {
     private final String TAG="GroupChatBoxActivity";
 
     private BroadcastReceiver chatBroadReceiver;
+    private LocalBroadcastManager localBroadcastManager;
     private MyXMPP xmpp ;
     private Common common;
     private Context context;
@@ -105,6 +107,7 @@ public class GroupChatBoxActivity extends AppCompatActivity {
         db=Const.DB;
         common=new Common(context);
         fileHandler=new FileHandler(context);
+        localBroadcastManager=LocalBroadcastManager.getInstance(context);
 
 
 
@@ -301,9 +304,9 @@ public class GroupChatBoxActivity extends AppCompatActivity {
         };
 
         try {
-            this.registerReceiver(chatBroadReceiver, new IntentFilter("group.message.received"));
-            this.registerReceiver(chatBroadReceiver, new IntentFilter("group.notification.received"));
-            this.registerReceiver(chatBroadReceiver, new IntentFilter("chat.view.refresh"));
+            localBroadcastManager.registerReceiver(chatBroadReceiver, new IntentFilter("group.message.received"));
+            localBroadcastManager.registerReceiver(chatBroadReceiver, new IntentFilter("group.notification.received"));
+            localBroadcastManager.registerReceiver(chatBroadReceiver, new IntentFilter("chat.view.refresh"));
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -317,7 +320,7 @@ public class GroupChatBoxActivity extends AppCompatActivity {
 
 //        UNREGISTER BROADCAST
         try {
-            context.unregisterReceiver(chatBroadReceiver);
+            localBroadcastManager.unregisterReceiver(chatBroadReceiver);
         }
         catch (Exception e){
 
@@ -329,7 +332,7 @@ public class GroupChatBoxActivity extends AppCompatActivity {
         super.onStop();
         //        UNREGISTER BROADCAST
         try {
-            context.unregisterReceiver(chatBroadReceiver);
+            localBroadcastManager.unregisterReceiver(chatBroadReceiver);
         }
         catch (Exception e){
 

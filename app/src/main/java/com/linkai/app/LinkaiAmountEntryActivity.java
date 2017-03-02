@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -43,6 +44,7 @@ public class LinkaiAmountEntryActivity extends AppCompatActivity {
     private MyXMPP xmpp;
     private Common common;
     private BroadcastReceiver chatBroadReceiver;
+    private LocalBroadcastManager localBroadcastManager;
 
     private EditText txtAmount;
     private Spinner spinnerCurrency;
@@ -71,6 +73,7 @@ public class LinkaiAmountEntryActivity extends AppCompatActivity {
         fileHandler=new FileHandler(context);
         xmpp=((ChatApplication)getApplication()).getMyXMPPInstance();
         common=new Common(context);
+        localBroadcastManager=LocalBroadcastManager.getInstance(context);
 //        actionbar
         toolbar= (Toolbar) findViewById(R.id.toolbar);
         this.setSupportActionBar(toolbar);
@@ -156,8 +159,8 @@ public class LinkaiAmountEntryActivity extends AppCompatActivity {
             }
         };
         try{
-            this.registerReceiver(chatBroadReceiver,new IntentFilter("chat.presence.changed"));
-            this.registerReceiver(chatBroadReceiver,new IntentFilter("chat.chatstate.changed"));
+            localBroadcastManager.registerReceiver(chatBroadReceiver,new IntentFilter("chat.presence.changed"));
+            localBroadcastManager.registerReceiver(chatBroadReceiver,new IntentFilter("chat.chatstate.changed"));
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -170,7 +173,7 @@ public class LinkaiAmountEntryActivity extends AppCompatActivity {
         super.onPause();
 //        UNREGISTER BROADCAST
         try {
-            context.unregisterReceiver(chatBroadReceiver);
+            localBroadcastManager.unregisterReceiver(chatBroadReceiver);
         }
         catch (Exception e){
 

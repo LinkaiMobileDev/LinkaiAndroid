@@ -3,6 +3,7 @@ package com.linkai.app.Utils;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
 import com.android.volley.AuthFailureError;
@@ -32,12 +33,14 @@ public class LinkaiUtils {
 
     Context context;
     DatabaseHandler db;
+    LocalBroadcastManager localBroadcastManager;
 
     private Map<String,String> headers;
 
     public LinkaiUtils(Context _context){
         this.context=_context;
         this.db= Const.DB;
+        localBroadcastManager=LocalBroadcastManager.getInstance(context);
     }
 
 //    method for signing in linkai account
@@ -171,7 +174,7 @@ public class LinkaiUtils {
             editor.putString("currency",balanceJson.getString("currency"));
             editor.commit();
 //            broadcast message to refresh linkai views
-            context.sendBroadcast(new Intent("linkai.view.refresh"));
+            localBroadcastManager.sendBroadcast(new Intent("linkai.view.refresh"));
         } catch (JSONException e) {
             e.printStackTrace();
             return false;

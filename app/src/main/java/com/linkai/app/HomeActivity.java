@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
@@ -61,6 +62,7 @@ public class HomeActivity extends AppCompatActivity {
 
     private HomePagerAdapter homePagerAdapter;
     private BroadcastReceiver chatBroadReceiver;
+    private LocalBroadcastManager localBroadcastManager;
 
     private ViewPager mViewPager;
     private TabLayout tabLayout;
@@ -84,6 +86,7 @@ public class HomeActivity extends AppCompatActivity {
         res=context.getResources();
         db=Const.DB;
         user=db.getUser();
+        localBroadcastManager=LocalBroadcastManager.getInstance(context);
         //        checking is first login
         checkRegistrationStatus();
 
@@ -332,11 +335,11 @@ public class HomeActivity extends AppCompatActivity {
 
         //Register BROADCAST
         try {
-            context.registerReceiver(chatBroadReceiver,new IntentFilter("chat.message.received"));
-            context.registerReceiver(chatBroadReceiver,new IntentFilter("chat.roster.received"));
-            context.registerReceiver(chatBroadReceiver,new IntentFilter("chat.view.refresh"));
-            context.registerReceiver(chatBroadReceiver,new IntentFilter("group.message.received"));
-            context.registerReceiver(chatBroadReceiver,new IntentFilter("linkai.view.refresh"));
+            localBroadcastManager.registerReceiver(chatBroadReceiver,new IntentFilter("chat.message.received"));
+            localBroadcastManager.registerReceiver(chatBroadReceiver,new IntentFilter("chat.roster.received"));
+            localBroadcastManager.registerReceiver(chatBroadReceiver,new IntentFilter("chat.view.refresh"));
+            localBroadcastManager.registerReceiver(chatBroadReceiver,new IntentFilter("group.message.received"));
+            localBroadcastManager.registerReceiver(chatBroadReceiver,new IntentFilter("linkai.view.refresh"));
         }
         catch (Exception e){
         }
@@ -348,7 +351,7 @@ public class HomeActivity extends AppCompatActivity {
 
 //        UNREGISTER BROADCAST
         try {
-            context.unregisterReceiver(chatBroadReceiver);
+            localBroadcastManager.unregisterReceiver(chatBroadReceiver);
         }
         catch (Exception e){
 
@@ -361,7 +364,7 @@ public class HomeActivity extends AppCompatActivity {
 
 //        UNREGISTER BROADCAST
         try {
-            context.unregisterReceiver(chatBroadReceiver);
+            localBroadcastManager.unregisterReceiver(chatBroadReceiver);
         }
         catch (Exception e){
 

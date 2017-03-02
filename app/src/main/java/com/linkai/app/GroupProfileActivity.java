@@ -101,7 +101,7 @@ public class GroupProfileActivity extends AppCompatActivity {
 
         popupList=new ListView(this);
         allFriends=db.getAllFriends(Const.FRIEND_SUBSCRIPTION_STATUS.SUBSCRIBED);
-        listDialogueBuilder=new AlertDialog.Builder(this);
+        listDialogueBuilder=new AlertDialog.Builder(GroupProfileActivity.this);
         simpleFriendsListAdapter=new SimpleFriendsListAdapter(this,allFriends);
         popupList.setAdapter(simpleFriendsListAdapter);
         listDialogueBuilder.setView(popupList);
@@ -181,7 +181,7 @@ public class GroupProfileActivity extends AppCompatActivity {
             dialog.show();
         }
         else if(id==R.id.action_exit_group){
-            AlertDialog.Builder alert=new AlertDialog.Builder(this);
+            AlertDialog.Builder alert=new AlertDialog.Builder(GroupProfileActivity.this);
             alert.setTitle(res.getString(R.string.group_profile_alert_title_exit_confirmation));
             alert.setMessage(res.getString(R.string.group_profile_alert_content_exit_confirmation));
             alert.setPositiveButton(res.getString(R.string.alert_btn_Yes), new DialogInterface.OnClickListener() {

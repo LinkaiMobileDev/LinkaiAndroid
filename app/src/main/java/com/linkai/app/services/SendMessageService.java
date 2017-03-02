@@ -2,6 +2,7 @@ package com.linkai.app.services;
 
 import android.app.IntentService;
 import android.content.Intent;
+import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
 import com.linkai.app.ChatApplication;
@@ -24,6 +25,7 @@ public class SendMessageService extends IntentService {
     MyXMPP xmpp;
     DatabaseHandler db;
     Common common;
+    LocalBroadcastManager localBroadcastManager;
 //    array to hold recipients of delayed msgs. this is for stop sending further messages to the same recipients in the same loop
     List<String> delayedMsgRecipients=new ArrayList<>();
 
@@ -43,6 +45,7 @@ public class SendMessageService extends IntentService {
 //        xmpp.connectConnection();
         db= Const.DB;
         common=new Common(this.getApplicationContext());
+        localBroadcastManager=LocalBroadcastManager.getInstance(this.getApplicationContext());
 
         if(!IS_ALIVE){
             IS_ALIVE=true;
@@ -114,7 +117,7 @@ public class SendMessageService extends IntentService {
                 if(retMsgObj!=null) {
                     db.updateMessage(retMsgObj);
                 }
-                this.sendBroadcast(new Intent("chat.view.refresh"));
+                localBroadcastManager.sendBroadcast(new Intent("chat.view.refresh"));
             }
             msg_count=db.getCountOfMessages(null,DatabaseHandler.Message_Direction.OUTGOING, DatabaseHandler.Message_Type.ALL, DatabaseHandler.Message_Status.TOSENT, DatabaseHandler.File_Status.SUCCESS);
         }while(msg_count>0 && common.isNetworkAvailable() && xmpp.IS_CONNECTED && xmpp.IS_LOGGEDIN);
@@ -145,7 +148,7 @@ public class SendMessageService extends IntentService {
                 //Toast.makeText(this,"sent message-"+retMsgObj.getBody(),Toast.LENGTH_SHORT).show();
 //                    update message
                 db.updateGroupMessage(retMsgObj);
-                this.sendBroadcast(new Intent("chat.view.refresh"));
+                localBroadcastManager.sendBroadcast(new Intent("chat.view.refresh"));
             }
             msg_count=db.getGroupMessagesCount(null,DatabaseHandler.Message_Direction.OUTGOING, DatabaseHandler.Message_Type.ALL, DatabaseHandler.Message_Status.UNSENT, DatabaseHandler.File_Status.SUCCESS);
         }while(msg_count>0 && common.isNetworkAvailable() && xmpp.IS_CONNECTED && xmpp.IS_LOGGEDIN);

@@ -2,6 +2,7 @@ package com.linkai.app.services;
 
 import android.app.IntentService;
 import android.content.Intent;
+import android.support.v4.content.LocalBroadcastManager;
 
 import com.linkai.app.libraries.Common;
 import com.linkai.app.libraries.Const;
@@ -16,6 +17,7 @@ public class DownloadFileService extends IntentService {
     Common common;
     FileHandler fileHandler;
     DatabaseHandler db;
+    LocalBroadcastManager localBroadcastManager;
 
     public DownloadFileService() {
         super("DownloadFileService");
@@ -25,6 +27,7 @@ public class DownloadFileService extends IntentService {
     protected void onHandleIntent(Intent intent) {
         common=new Common(this.getApplicationContext());
         fileHandler=new FileHandler(this.getApplicationContext());
+        localBroadcastManager=LocalBroadcastManager.getInstance(this.getApplicationContext());
         db=Const.DB;
         if(!IS_ALIVE){
             IS_ALIVE=true;
@@ -35,20 +38,20 @@ public class DownloadFileService extends IntentService {
                 ChatMessage msg=db.getMessageById(intent.getStringExtra("msg_id"));
                 if(fileHandler.downloadFile(msg)) {
 //            send broadcast to refresh chat box if file downloaded successfully
-                    this.sendBroadcast(new Intent("chat.view.refresh"));
+                    localBroadcastManager.sendBroadcast(new Intent("chat.view.refresh"));
                 }
                 else{
-                    this.sendBroadcast(new Intent("chat.view.refresh"));
+                    localBroadcastManager.sendBroadcast(new Intent("chat.view.refresh"));
                 }
             }
             else if(chatbox_type== Const.CHATBOX_TYPE.GROUP){
                 GroupMessage msg=db.getGroupMessageById(intent.getStringExtra("msg_id"));
                 if(fileHandler.downloadFile(msg)) {
 //            send broadcast to refresh chat box if file downloaded successfully
-                    this.sendBroadcast(new Intent("chat.view.refresh"));
+                    localBroadcastManager.sendBroadcast(new Intent("chat.view.refresh"));
                 }
                 else{
-                    this.sendBroadcast(new Intent("chat.view.refresh"));
+                    localBroadcastManager.sendBroadcast(new Intent("chat.view.refresh"));
                 }
             }
 

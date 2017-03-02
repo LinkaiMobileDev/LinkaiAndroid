@@ -3,6 +3,7 @@ package com.linkai.app.services;
 import android.app.IntentService;
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
 import com.android.volley.Request;
@@ -28,6 +29,7 @@ public class SyncProfileService extends IntentService {
     public static boolean IS_ALIVE=false;
     Context context;
     DatabaseHandler db=Const.DB;
+    LocalBroadcastManager localBroadcastManager;
 
 
     public SyncProfileService() {
@@ -37,6 +39,7 @@ public class SyncProfileService extends IntentService {
     @Override
     protected void onHandleIntent(Intent intent) {
         context=this.getApplicationContext();
+        localBroadcastManager=LocalBroadcastManager.getInstance(context);
         if(!IS_ALIVE){
             IS_ALIVE=true;
         }
@@ -61,7 +64,7 @@ public class SyncProfileService extends IntentService {
                                 updateContactsProfile(response.getJSONArray("users"));
                                 updateGroupsProfile(response.getJSONArray("groups"));
 //                            send broadcast
-                                context.sendBroadcast(new Intent().setAction("chat.view.refresh"));
+                                localBroadcastManager.sendBroadcast(new Intent().setAction("chat.view.refresh"));
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }

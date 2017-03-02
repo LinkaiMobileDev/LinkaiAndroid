@@ -63,15 +63,6 @@
             </intent-filter>
         </receiver>
         <receiver
-            android:name="com.linkai.app.Receivers.MessageReceiver"
-            android:enabled="true"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="chat.message.received" />
-                <action android:name="group.message.received" />
-            </intent-filter>
-        </receiver>
-        <receiver
             android:name="com.linkai.app.Receivers.AppStartReceiver"
             android:enabled="true"
             android:exported="true">
@@ -89,7 +80,6 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
@@ -139,9 +129,11 @@
         <activity
             android:name="com.linkai.app.LinkaiPinEntryActivity"
             android:label="@string/app_name" />
+
         <activity
             android:name="com.linkai.app.LinkaiContactsActivity"
             android:label="@string/app_name" />
+
         <activity
             android:name="com.linkai.app.LinkaiAmountEntryActivity"
             android:label="@string/app_name" />

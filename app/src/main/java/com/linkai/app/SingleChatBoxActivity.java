@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.ClipboardManager;
@@ -57,6 +58,7 @@ public class SingleChatBoxActivity extends AppCompatActivity {
 
     //creating broadcast receiver
     private BroadcastReceiver chatBroadReceiver;
+    private LocalBroadcastManager localBroadcastManager;
     private MyXMPP xmpp ;
     private Common common;
     private Context context;
@@ -103,6 +105,7 @@ public class SingleChatBoxActivity extends AppCompatActivity {
         Intent intentCurrent=getIntent();
         context=this.getApplicationContext();
         res=context.getResources();
+        localBroadcastManager=LocalBroadcastManager.getInstance(context);
 
         imgProfileThumb= (RoundedImageView) findViewById(R.id.imgProfileThumb);
 //        btnAttach= (ImageButton) findViewById(R.id.btnAttach);
@@ -171,9 +174,10 @@ public class SingleChatBoxActivity extends AppCompatActivity {
 
                 db.addMessage(msgObj);
                 txtMsg.setText("");
-
 //                call to start background service to send messages
                 common.callSendMessageService();
+//                reload messaGE LIST
+                loadChatBoxMessages();
             }
         });
 
@@ -286,11 +290,11 @@ public class SingleChatBoxActivity extends AppCompatActivity {
             }
         };
         try{
-            this.registerReceiver(chatBroadReceiver,new IntentFilter("chat.message.received"));
-            this.registerReceiver(chatBroadReceiver,new IntentFilter("chat.presence.changed"));
-            this.registerReceiver(chatBroadReceiver,new IntentFilter("chat.chatstate.changed"));
-            this.registerReceiver(chatBroadReceiver,new IntentFilter("chat.view.refresh"));
-            this.registerReceiver(chatBroadReceiver,new IntentFilter("linkai.view.refresh"));
+            localBroadcastManager.registerReceiver(chatBroadReceiver,new IntentFilter("chat.message.received"));
+            localBroadcastManager.registerReceiver(chatBroadReceiver,new IntentFilter("chat.presence.changed"));
+            localBroadcastManager.registerReceiver(chatBroadReceiver,new IntentFilter("chat.chatstate.changed"));
+            localBroadcastManager.registerReceiver(chatBroadReceiver,new IntentFilter("chat.view.refresh"));
+            localBroadcastManager.registerReceiver(chatBroadReceiver,new IntentFilter("linkai.view.refresh"));
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -304,7 +308,7 @@ public class SingleChatBoxActivity extends AppCompatActivity {
 
 //        UNREGISTER BROADCAST
         try {
-            context.unregisterReceiver(chatBroadReceiver);
+            localBroadcastManager.unregisterReceiver(chatBroadReceiver);
         }
         catch (Exception e){
 

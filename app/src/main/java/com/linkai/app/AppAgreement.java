@@ -99,7 +99,7 @@ public class AppAgreement extends AppCompatActivity {
                 }
             }
             if (!isAllGranted) {
-                AlertDialog.Builder alertBuilder=new AlertDialog.Builder(this)
+                AlertDialog.Builder alertBuilder=new AlertDialog.Builder(AppAgreement.this)
                         .setTitle(res.getString(R.string.app_agreement_alert_title_grant_permission))
                         .setMessage(res.getString(R.string.app_agreement_alert_content_grant_permission))
                         .setPositiveButton(res.getString(R.string.alert_btn_Yes),new DialogInterface.OnClickListener(){

@@ -117,7 +117,7 @@ public class LinkaiCreateEventStep2Activity extends AppCompatActivity {
         progressDialog.setCancelable(false);
         progressDialog.setCanceledOnTouchOutside(false);
 
-        listDialogueBuilder=new AlertDialog.Builder(this);
+        listDialogueBuilder=new AlertDialog.Builder(LinkaiCreateEventStep2Activity.this);
         allFriends=db.getAllFriends(Const.FRIEND_SUBSCRIPTION_STATUS.SUBSCRIBED);
         popupAdapter=new SimpleFriendsListAdapter(this,allFriends);
 

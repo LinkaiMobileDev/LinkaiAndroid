@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -26,6 +27,7 @@ public class LinkaiRedeemActivity extends AppCompatActivity {
     SharedPreferences prefs;
     DatabaseHandler db;
     private BroadcastReceiver broadcastReceiver;
+    private LocalBroadcastManager localBroadcastManager;
 
     private Toolbar toolbar;
     private ListView lstHistory;
@@ -40,6 +42,7 @@ public class LinkaiRedeemActivity extends AppCompatActivity {
         setContentView(R.layout.activity_linkai_redeem);
         context=this.getApplicationContext();
         db= Const.DB;
+        localBroadcastManager=LocalBroadcastManager.getInstance(context);
         prefs = context.getSharedPreferences(Const.LINKAI_SHAREDPREFERENCE_FILE, Context.MODE_PRIVATE);
         //        actionbar
         toolbar= (Toolbar) findViewById(R.id.toolbar);
@@ -85,7 +88,7 @@ public class LinkaiRedeemActivity extends AppCompatActivity {
             }
         };
         try{
-            context.registerReceiver(broadcastReceiver,new IntentFilter("linkai.view.refresh"));
+            localBroadcastManager.registerReceiver(broadcastReceiver,new IntentFilter("linkai.view.refresh"));
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -97,7 +100,7 @@ public class LinkaiRedeemActivity extends AppCompatActivity {
 
 //        UNREGISTER BROADCAST
         try {
-            context.unregisterReceiver(broadcastReceiver);
+            localBroadcastManager.unregisterReceiver(broadcastReceiver);
         }
         catch (Exception e){
 

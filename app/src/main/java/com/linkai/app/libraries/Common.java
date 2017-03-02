@@ -215,9 +215,8 @@ public class Common {
 //        conditions to avoid notification
 //        1. app running foreground and viewing message sender's chatbox
 //        2. app running in foreground and message read
-
         if((!isRunningInBackground()) && (
-                (Const.CUR_ACTIVITY==Const.APP_COMPONENTS.SingleChatBoxActivity && Const.CUR_CHATID== msg.getFrom())
+                (Const.CUR_ACTIVITY==Const.APP_COMPONENTS.SingleChatBoxActivity && Const.CUR_CHATID.equals(msg.getFrom()))
                     || msg.getStatus()==ChatMessage.STATUS_READ
             )){
             return;
@@ -287,7 +286,7 @@ public class Common {
 //        2. app running in foreground and message read
 
         if((!isRunningInBackground()) && (
-                (Const.CUR_ACTIVITY==Const.APP_COMPONENTS.GroupChatBoxActivity && Const.CUR_GROUPID== msg.getGroupId())
+                (Const.CUR_ACTIVITY==Const.APP_COMPONENTS.GroupChatBoxActivity && Const.CUR_GROUPID.equals(msg.getGroupId()))
                         || msg.getStatus()==ChatMessage.STATUS_READ
         )){
             return;

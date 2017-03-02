@@ -5,8 +5,10 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -63,7 +65,6 @@ public class LinkaiTransferTimeActivity extends AppCompatActivity {
     private MyXMPP xmpp;
     ChatUser user;
     private Common common;
-    private BroadcastReceiver chatBroadReceiver;
     Resources res;
 
     private TextView txtName;
@@ -72,6 +73,8 @@ public class LinkaiTransferTimeActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private RadioGroup radioGp=null;
     private Button btnContinue;
+    private BroadcastReceiver chatBroadReceiver;
+    LocalBroadcastManager localBroadcastManager;
 
     ProgressDialog progressDialog;
 
@@ -95,6 +98,7 @@ public class LinkaiTransferTimeActivity extends AppCompatActivity {
         common=new Common(context);
         user=db.getUser();
         res=context.getResources();
+        localBroadcastManager=LocalBroadcastManager.getInstance(context);
 //        actionbar
         toolbar= (Toolbar) findViewById(R.id.toolbar);
         this.setSupportActionBar(toolbar);
@@ -153,6 +157,35 @@ public class LinkaiTransferTimeActivity extends AppCompatActivity {
     protected void onResume() {
         Const.CUR_ACTIVITY= Const.APP_COMPONENTS.LinkaiTransferTimeActivity;
         super.onResume();
+        chatBroadReceiver=new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                //Toast.makeText(context,"received-"+intent.getAction(),Toast.LENGTH_SHORT).show();
+//                loadChatBoxMessages();
+                switch (intent.getAction()){
+                    case "chat.presence.changed":
+//                        Log.d(TAG, "onReceive: "+intent.getStringExtra("from")+"="+chatId+"-"+intent.getStringExtra("status"));
+                        if(intent.getStringExtra("from").equals(chatId)){
+                            IS_ONLINE=intent.getBooleanExtra("status",false);
+                            setChatAvailabilityStatus();
+                        }
+                        break;
+                    case "chat.chatstate.changed":
+                        if(intent.getStringExtra("from").equals(chatId)){
+                            IS_TYPING=intent.getBooleanExtra("status",false);
+                            setChatAvailabilityStatus();
+                        }
+                        break;
+                    default:break;
+                }
+            }
+        };
+        try{
+            localBroadcastManager.registerReceiver(chatBroadReceiver,new IntentFilter("chat.presence.changed"));
+            localBroadcastManager.registerReceiver(chatBroadReceiver,new IntentFilter("chat.chatstate.changed"));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -161,7 +194,7 @@ public class LinkaiTransferTimeActivity extends AppCompatActivity {
 
 //        UNREGISTER BROADCAST
         try {
-            context.unregisterReceiver(chatBroadReceiver);
+            localBroadcastManager.unregisterReceiver(chatBroadReceiver);
         }
         catch (Exception e){
 
@@ -255,7 +288,7 @@ public class LinkaiTransferTimeActivity extends AppCompatActivity {
                     @Override
                     public void onError(JSONObject jsonObject) {
                         showProgress(false,null);
-                        AlertDialog alertBuilder=new AlertDialog.Builder(context).create();
+                        AlertDialog alertBuilder=new AlertDialog.Builder(LinkaiTransferTimeActivity.this).create();
                         alertBuilder.setTitle(res.getString(R.string.alert_title_signin_failed));
                         alertBuilder.setMessage(res.getString(R.string.alert_content_signin_failed));
                         alertBuilder.setButton(AlertDialog.BUTTON_NEUTRAL, res.getString(R.string.alert_btn_ok),

@@ -3,6 +3,7 @@ package com.linkai.app.services;
 import android.app.IntentService;
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
 import com.linkai.app.ChatApplication;
@@ -31,6 +32,7 @@ public class SyncGroupsService extends IntentService {
     MyXMPP xmpp;
     DatabaseHandler db;
     Common common;
+    LocalBroadcastManager localBroadcastManager;
 
 
     public SyncGroupsService() {
@@ -44,7 +46,7 @@ public class SyncGroupsService extends IntentService {
         xmpp=((ChatApplication)getApplication()).getMyXMPPInstance();
         db=Const.DB;
         common=new Common(this.getApplicationContext());
-
+        localBroadcastManager=LocalBroadcastManager.getInstance(this.getApplicationContext());
 
         if(!IS_ALIVE){
             IS_ALIVE=true;
@@ -53,7 +55,7 @@ public class SyncGroupsService extends IntentService {
 //sync groups with server
             ChatGroup.syncGroupsWithServer(context);
 //            send refresh broadcast
-            context.sendBroadcast(new Intent("chat.view.refresh"));
+            localBroadcastManager.sendBroadcast(new Intent("chat.view.refresh"));
 //          join groups
             joinGroups();
         }

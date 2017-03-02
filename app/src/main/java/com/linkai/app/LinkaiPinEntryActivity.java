@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -43,6 +44,7 @@ public class LinkaiPinEntryActivity extends AppCompatActivity {
     private MyXMPP xmpp;
     private Common common;
     private BroadcastReceiver chatBroadReceiver;
+    LocalBroadcastManager localBroadcastManager;
     SharedPreferences prefs;
     Map<String,String> headers;
 
@@ -74,6 +76,7 @@ public class LinkaiPinEntryActivity extends AppCompatActivity {
         fileHandler=new FileHandler(context);
         xmpp=((ChatApplication)getApplication()).getMyXMPPInstance();
         common=new Common(context);
+        localBroadcastManager=LocalBroadcastManager.getInstance(context);
         prefs = context.getSharedPreferences(Const.LINKAI_SHAREDPREFERENCE_FILE, Context.MODE_PRIVATE);
 //        actionbar
         toolbar= (Toolbar) findViewById(R.id.toolbar);
@@ -158,8 +161,8 @@ public class LinkaiPinEntryActivity extends AppCompatActivity {
             }
         };
         try{
-            this.registerReceiver(chatBroadReceiver,new IntentFilter("chat.presence.changed"));
-            this.registerReceiver(chatBroadReceiver,new IntentFilter("chat.chatstate.changed"));
+            localBroadcastManager.registerReceiver(chatBroadReceiver,new IntentFilter("chat.presence.changed"));
+            localBroadcastManager.registerReceiver(chatBroadReceiver,new IntentFilter("chat.chatstate.changed"));
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -173,7 +176,7 @@ public class LinkaiPinEntryActivity extends AppCompatActivity {
 
 //        UNREGISTER BROADCAST
         try {
-            context.unregisterReceiver(chatBroadReceiver);
+            localBroadcastManager.unregisterReceiver(chatBroadReceiver);
         }
         catch (Exception e){
 

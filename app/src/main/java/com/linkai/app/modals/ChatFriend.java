@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.provider.ContactsContract;
+import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
 import com.android.volley.RequestQueue;
@@ -240,6 +241,7 @@ public class ChatFriend {
         context=_context;
         //final MyXMPP xmpp= ((ChatApplication) context.getApplicationContext()).getMyXMPPInstance();
         final DatabaseHandler db=Const.DB;
+        final LocalBroadcastManager localBroadcastManager=LocalBroadcastManager.getInstance(context);
         ArrayList<ChatFriend> friends=db.getAllFriends(Const.FRIEND_SUBSCRIPTION_STATUS.UNSUBSCRIBED);
         JSONObject jsonObject;
         JSONArray jsonArray=new JSONArray();
@@ -285,7 +287,7 @@ public class ChatFriend {
                                 //xmpp.sendSubscriptionRequest(friend.getJabberId(),friend.getName());
                             }
                         }
-                        context.sendBroadcast(new Intent("chat.roster.received"));
+                        localBroadcastManager.sendBroadcast(new Intent("chat.roster.received"));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
