@@ -25,6 +25,5 @@ public class MessageReceiver extends BroadcastReceiver {
 
             default:break;
         }
-//        Log.d(TAG, "onReceive: cue_act "+ Const.CUR_ACTIVITY);
     }
 }

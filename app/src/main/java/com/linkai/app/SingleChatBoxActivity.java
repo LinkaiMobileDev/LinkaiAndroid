@@ -290,7 +290,7 @@ public class SingleChatBoxActivity extends AppCompatActivity {
             this.registerReceiver(chatBroadReceiver,new IntentFilter("chat.presence.changed"));
             this.registerReceiver(chatBroadReceiver,new IntentFilter("chat.chatstate.changed"));
             this.registerReceiver(chatBroadReceiver,new IntentFilter("chat.view.refresh"));
-            context.registerReceiver(chatBroadReceiver,new IntentFilter("linkai.view.refresh"));
+            this.registerReceiver(chatBroadReceiver,new IntentFilter("linkai.view.refresh"));
         }catch (Exception e){
             e.printStackTrace();
         }
